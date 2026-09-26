@@ -146,7 +146,7 @@ public class ASLPBSChecker extends AbstractConfigurable
         getGameModule().getToolBar().add(disciplineButton);
 
         autoDiscToggle = new JToggleButton("PBS Auto-Disc.", autoFireDiscipline);
-        autoDiscToggle.setToolTipText("Enable/disable automatic Fire Discipline roll after each movement");
+        autoDiscToggle.setToolTipText("Roll Fire Discipline only when a move puts an enemy in LOS");
         autoDiscToggle.addActionListener(e -> autoFireDiscipline = autoDiscToggle.isSelected());
         getGameModule().getToolBar().add(autoDiscToggle);
 
@@ -247,10 +247,10 @@ public class ASLPBSChecker extends AbstractConfigurable
 //            );
 //        }
         if (mainMap != null && mainMap.getVASLMap() != null) {
-            if (autoFireDiscipline) {
+            boolean activationPossible = updateView((ArrayList<GamePiece>) allDraggedPieces);
+            if (autoFireDiscipline && activationPossible) {
                 rollFireDiscipline();
             }
-            updateView((ArrayList<GamePiece>) allDraggedPieces);
         }
     }
 
@@ -258,14 +258,14 @@ public class ASLPBSChecker extends AbstractConfigurable
     // Core logic  (identico a SASLActivationChecker salvo i riferimenti alla mappa)
     // -------------------------------------------------------------------------
 
-    private void updateView(ArrayList<GamePiece> movedunits) {
+    private boolean updateView(ArrayList<GamePiece> movedunits) {
         boolean clear = true;
 
         if ((pbsSidesMap == null) && !isPBSExtensionPresent()) {
-            return;
+            return false;
         }
         if (mainMap == null || mainMap.getVASLMap() == null) {
-            return;
+            return false;
         }
 
         updateNationalities();
@@ -300,6 +300,7 @@ public class ASLPBSChecker extends AbstractConfigurable
 //        );
 
         generateFlareList();
+        return !pieceList.isEmpty();
     }
 
     private void generateFlareList() {

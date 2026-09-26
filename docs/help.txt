@@ -68,7 +68,7 @@ Toolbar buttons (ASLPBSChecker)
 - PBS Reset: removes all *ACTIVATE?* labels from the pieces.
 - PBS Disc.: left click rolls 1d10 for Fire Discipline (IFT First Fire 2.1: modified result <=3 = Interdiction,
   DRM -4 if the previous roll was already Interdiction); right click resets the indicator.
-- PBS Auto-Disc.: when enabled, automatically rolls Fire Discipline after each move.
+- PBS Auto-Disc.: when enabled, rolls Fire Discipline only if the move puts an enemy unit in LOS.
 - PBS Debug: when enabled, prints diagnostic info to the chat (nationality, faction, NVR, illumination status)
   for every piece evaluated -- useful during testing/development.
 
