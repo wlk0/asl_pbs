@@ -348,7 +348,8 @@ public class ASLPBSChecker extends AbstractConfigurable
         Location l2 = VASLGameInterface.getLocation(target);
         if (l1 == null || l2 == null) return -1;
         LOSResult losResult = new LOSResult();
-        mainMap.getVASLMap().LOS(l1, false, l2, false, losResult, VASLGameInterface);
+        // VASL 6.7.4+: LOS takes IllumGunFlash; null matches SASLActivationChecker
+        mainMap.getVASLMap().LOS(l1, false, l2, false, losResult, VASLGameInterface, null);
         if (losResult.isBlocked()) return -1;
         int range = losResult.getRange();
         if (nvr >= 0) {
@@ -659,7 +660,8 @@ public class ASLPBSChecker extends AbstractConfigurable
         Location l2 = VASLGameInterface.getLocation(piece2);
         if (l1 == null || l2 == null) return -1;
         LOSResult losResult = new LOSResult();
-        mainMap.getVASLMap().LOS(l1, false, l2, false, losResult, VASLGameInterface);
+        // VASL 6.7.4+: LOS takes IllumGunFlash; null matches SASLActivationChecker
+        mainMap.getVASLMap().LOS(l1, false, l2, false, losResult, VASLGameInterface, null);
         return losResult.getRange();
     }
 

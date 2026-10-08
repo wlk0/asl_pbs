@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<VASSAL.build.module.ModuleExtension anyModule="false" description="ASL PBS (Play Both Sides)" extensionId="26d" module="VASL" moduleVersion="6.7.3" nextPieceSlotId="14726" vassalVersion="3.7.20" version="1.00">
+<VASSAL.build.module.ModuleExtension anyModule="false" description="ASL PBS (Play Both Sides)" extensionId="26d" module="VASL" moduleVersion="6.7.3" nextPieceSlotId="14726" vassalVersion="3.7.20" version="1.01">
     <VASSAL.build.module.ExtensionElement target="">
         <VASSAL.build.module.ToolbarMenu canDisable="false" description="PBS" disabledIcon="" hideWhenDisabled="false" hotkey="" icon="asl_pbs.png" menuItems="PBS Counters,PBS Cloaking Display,PBS Aider,PBS Tracker Sheet,PBS Sides" propertyGate="" text="" tooltip="Play Both Sides"/>
     </VASSAL.build.module.ExtensionElement>
